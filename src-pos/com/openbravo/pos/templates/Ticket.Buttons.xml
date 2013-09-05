@@ -26,13 +26,13 @@
 <configuration>
 <!-- Sales Ticket Button Bar - Show icons **************************************** -->
 	<!-- SET Sales Ticket Refund Item (Default=DISABLED) -->
-	<!-- <button key="button.refundit" image="img.refundit" code="script.Refundit"/> -->
+	<button key="button.refundit" image="img.refundit" code="script.Refundit"/>
 
 	<!-- SET Sales Ticket ServiceCharge (Default=DISABLED) -->
 	<!-- <button key="button.scharge" image="img.heart" code="script.ServiceCharge"/> -->
                 
 	<!-- SET Line or Total Discount (Default=TotalDiscount= ENABLED) -->
-	<button key="button.totaldiscount" image="img.discount" code="script.totaldiscount"/>
+	<!-- <button key="button.totaldiscount" image="img.discount" code="script.totaldiscount"/> -->
 	<!-- <button key="button.linediscount" image="img.discount" code="script.linediscount"/> -->
 
 	<!-- SET Server's name (Default=DISABLED) -->
@@ -45,13 +45,13 @@
     	<button key="button.print" image="img.ticket_print" template="Printer.TicketPreview"/>
 
 	<!-- SET Open Cashdrawer (Default=ENABLED) -->
-	<button key="button.opendrawer" image="img.cashdrawer" template="Printer.OpenDrawer"/>
+	<!-- <button key="button.opendrawer" image="img.cashdrawer" template="Printer.OpenDrawer"/> -->
 <!-- END Sales Ticket Button Bar - Show icons -->
 
 <!-- SET Ticket Button Bar - Text Only ****************************************************************** -->
 	<!-- <button key="button.refundit" name="button.refundit" code="script.Refundit"/> -->
-    	<!-- <button key="button.linediscount" name="button.linediscount" code="script.linediscount"/> -->
-    	<!-- <button key="button.discount" name="button.totaldiscount" code="script.totaldiscount"/> -->
+    	<button key="button.linediscount" name="button.linediscount" code="script.linediscount"/>
+    	<button key="button.discount" name="button.totaldiscount" code="script.totaldiscount"/>
     	<!-- <button key="button.setperson" name="button.setperson" code="script.SetPerson"/> -->
     	<!-- <button key="button.sendorder" name="button.sendorder" code="script.SendOrder"/> -->
     	<!-- <button key="button.print" titlekey="button.print" template="Printer.TicketPreview"/> -->
@@ -66,7 +66,7 @@
 	<!--  <cat-height value="155" /> -->
 
 	<!-- Maximum Category height for 1024x768 in Full Screen mode (Default=ENABLED) -->
-	<cat-height value="320" />
+	<cat-height value="260" />
 
 	<!-- Maximum Category height for 1280x1024 in Full Screen mode -->
 	<!--  <cat-height value="640" /> -->
@@ -78,7 +78,7 @@
 	<!--  <img-height value="48"/> -->
 
 	<!-- Medium Product button size in Sales screen (Default=ENABLED) -->
-   	<img-width value="96"/>
+   	<img-width value="150"/>
 	<img-height value="72"/>
     
 <!-- Large Product button size in Sales screen (Default=DISABLED)-->
@@ -97,13 +97,13 @@
 	<event  key="ticket.total" code="script.ReceiptConsolidate"/>
 
 	<!-- SET Stock Level Checking (Default=DISABLED) --> 
-	<!-- <event key="ticket.addline" code="script.StockCurrentAdd"/> -->
-	<!-- <event key="ticket.setline" code="script.StockCurrentSet"/> -->
+	<event key="ticket.addline" code="script.StockCurrentAdd"/>
+	<event key="ticket.setline" code="script.StockCurrentSet"/>
 
-    <event key="ticket.change" code="event.change"/>
-    <event key="ticket.addline" code="event.addline"/>
-    <event key="ticket.removeline" code="event.removeline"/>
-    <event key="ticket.setline" code="event.setline"/>
+        <event key="ticket.change" code="event.change"/>
+        <!-- <event key="ticket.addline" code="event.addline"/> -->
+        <event key="ticket.removeline" code="event.removeline"/>
+        <!-- <event key="ticket.setline" code="event.setline"/> -->
 	<!-- <event key="ticket.show" code="event.show"/> -->
 	<!-- <event key="ticket.total" code="script.Event.Total"/> -->
 
