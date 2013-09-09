@@ -346,9 +346,26 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
    }
 
     private void addTicketLine(ProductInfoExt oProduct, double dMul, double dPrice) {   
+        TaxInfo tax;
+        java.util.List<TaxCategoryInfo> taxcategorieslist = null;
         
-        TaxInfo tax = taxeslogic.getTaxInfo(oProduct.getTaxCategoryID(), m_oTicket.getCustomer());
+        try {
+            taxcategorieslist = senttaxcategories.list();
+        } catch (BasicException ex) {
+            MessageInf msg = new MessageInf(MessageInf.SGN_WARNING, "Error interno" , ex);
+            msg.show(this);
+        }
         
+        if (m_jTax.getItemCount() > 0) {
+            //modifica el impuesto segun lo seleccionado en m_jTax
+            int i = m_jTax.getSelectedIndex();
+            tax = taxeslogic.getTaxInfo(taxcategorieslist.get(i), m_oTicket.getCustomer());
+            
+            oProduct.setTaxCategoryID(tax.getId());
+        } else {
+            tax = taxeslogic.getTaxInfo(oProduct.getTaxCategoryID(), m_oTicket.getCustomer());
+        }
+
         addTicketLine(new TicketLineInfo(oProduct, dMul, dPrice, tax, (java.util.Properties) (oProduct.getProperties().clone())));
     }
     
@@ -376,7 +393,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
                 } else {
                     Toolkit.getDefaultToolkit().beep();                                   
                 }
-            } else {    
+            } else {
                 // Producto normal, entonces al finalnewline.getMultiply() 
                 m_oTicket.addLine(oLine);            
                 m_ticketlines.addTicketLine(oLine); // Pintamos la linea en la vista... 
