@@ -35,7 +35,8 @@ Properties p = logicsystem.getResourceAsProperties(hostname + "/properties");
 String loc = p.getProperty("location");
  
 product = line.getProductID();
-units = logicsale.findProductStock(loc,product,null);
+attsetinstid = line.getProductAttSetInstId();
+units = logicsale.findProductStock(loc,product,attsetinstid);
 multiply = 0;
  
 if (line.isProductService() == true) {
@@ -44,7 +45,7 @@ if (line.isProductService() == true) {
     
     for (int i= 0; i < ticket.getLinesCount(); i++) {
         row = ticket.getLine(i);
-        if (row.getProductID() == product) {
+        if (row.getProductID() == product && row.getProductAttSetInstId().equals(attsetinstid)) {
             multiply = multiply + row.getMultiply();
         }
     }

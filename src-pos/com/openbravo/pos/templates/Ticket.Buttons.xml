@@ -94,7 +94,7 @@
 	<event key="ticket.close" code="Ticket.Close"/>
 
 	<!-- SET Consolidate Receipt - Multiple ProductID's (Default=ENABLED) -->
-	<event  key="ticket.total" code="script.ReceiptConsolidate"/>
+	<!-- <event  key="ticket.total" code="script.ReceiptConsolidate"/> -->
 
 	<!-- SET Stock Level Checking (Default=DISABLED) --> 
 	<event key="ticket.addline" code="script.StockCurrentAdd"/>
