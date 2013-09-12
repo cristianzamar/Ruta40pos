@@ -151,7 +151,7 @@ new Double($F{PRICESELL}.doubleValue() * (1.0 + $P{TAXESLOGIC}.getTaxRate($F{TAX
 				<graphicElement fill="Solid">
 					<pen lineWidth="0.0" lineStyle="Solid"/>
 				</graphicElement>
-				<imageExpression><![CDATA[com.openbravo.pos.util.BarcodeImage.getBarcodeEAN13($F{CODE})]]></imageExpression>
+				<imageExpression><![CDATA[com.openbravo.pos.util.BarcodeImage.getBarcode128($F{CODE})]]></imageExpression>
 			</image>
 			<textField isBlankWhenNull="false">
 				<reportElement key="textField-9" x="91" y="85" width="72" height="18"/>
