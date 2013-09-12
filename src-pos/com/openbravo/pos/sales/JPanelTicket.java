@@ -354,6 +354,24 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
     
     protected void addTicketLine(TicketLineInfo oLine) {   
         
+        try {
+            //si tiene atributos asociados pero no estan cargados
+            if (oLine.getProductAttSetId() != null && oLine.getProductAttSetInstDesc().equals("")) 
+            {
+                JProductAttEdit attedit = JProductAttEdit.getAttributesEditor(this, m_App.getSession());
+                attedit.editAttributes(oLine.getProductAttSetId(), oLine.getProductAttSetInstId());
+                attedit.setVisible(true);
+                if (attedit.isOK()) {
+                    // The user pressed OK
+                    oLine.setProductAttSetInstId(attedit.getAttributeSetInst());
+                    oLine.setProductAttSetInstDesc(attedit.getAttributeSetInstDescription());
+                }
+            }
+        } catch (BasicException ex) {
+            MessageInf msg = new MessageInf(MessageInf.SGN_WARNING, AppLocal.getIntString("message.cannotfindattributes"), ex);
+            msg.show(this);
+        }
+        
         if (executeEventAndRefresh("ticket.addline", new ScriptArg("line", oLine)) == null) {
         
             if (oLine.isProductCom()) {
@@ -1392,6 +1410,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
 
         jEditAttributes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/attributes.png"))); // NOI18N
         jEditAttributes.setToolTipText("Choose Attributes");
+        jEditAttributes.setEnabled(false);
         jEditAttributes.setFocusPainted(false);
         jEditAttributes.setFocusable(false);
         jEditAttributes.setMargin(new java.awt.Insets(8, 14, 8, 14));
