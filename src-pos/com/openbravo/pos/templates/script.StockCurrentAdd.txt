@@ -45,8 +45,8 @@ if (line.isProductService() == true) {
     
     for (int i= 0; i < ticket.getLinesCount(); i++) {
         row = ticket.getLine(i);
-        if (row.getProductID() == product && row.getProductAttSetInstId().equals(attsetinstid)) {
-            multiply = multiply + row.getMultiply();
+        if (row.getProductID().equals(product) && row.getProductAttSetInstId().equals(attsetinstid)) {
+                multiply = multiply + row.getMultiply();
         }
     }
     diff = units - line.getMultiply() - multiply;
