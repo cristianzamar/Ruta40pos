@@ -1,0 +1,38 @@
+//event.total
+//script que redondea al entero segun si el resto es > o < a 0.5
+
+import com.openbravo.format.Formats; 
+import com.openbravo.pos.ticket.TicketLineInfo; 
+import com.openbravo.pos.ticket.TicketProductInfo;  
+import java.util.Properties; 
+ 
+total = ticket.getTotal();  
+ 
+if (total > 0.0) {  
+
+  m=total;  
+  decimales = m - (float)Math.floor(m);
+
+  if (decimales != 0) {
+
+    if (decimales < 0.5) {
+      float b = (float)Math.ceil(m);  
+    } else {
+      float b = (float)Math.floor(m);  
+    }
+
+    ticket.insertLine(ticket.getLinesCount(), 
+      new TicketLineInfo( 
+        "Ajuste por redondeo",  
+        "000",  
+        1,  
+        (decimales < 0.5 ? -1 * decimales : 1 - decimales), 
+        taxes.get("001")
+      )
+    );
+  }
+  sales.setSelectedIndex(ticket.getLinesCount() - 1); 
+
+ } else {  
+  java.awt.Toolkit.getDefaultToolkit().beep(); 
+}  

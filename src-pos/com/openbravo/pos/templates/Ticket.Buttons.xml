@@ -78,8 +78,8 @@
 	<!--  <img-height value="48"/> -->
 
 	<!-- Medium Product button size in Sales screen (Default=ENABLED) -->
-   	<img-width value="150"/>
-	<img-height value="72"/>
+   	<img-width value="235"/>
+	<img-height value="65"/>
     
 <!-- Large Product button size in Sales screen (Default=DISABLED)-->
 	<!-- <img-width value="128"/> -->
@@ -106,6 +106,7 @@
         <!-- <event key="ticket.setline" code="event.setline"/> -->
 	<!-- <event key="ticket.show" code="event.show"/> -->
 	<!-- <event key="ticket.total" code="script.Event.Total"/> -->
+        <event key="ticket.total" code="event.total"/>
 
             <!-- <taxesincluded value="true"/> -->
             <!-- <taxcategoryid value="001"/> -->
