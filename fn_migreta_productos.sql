@@ -148,7 +148,8 @@ end if;
      _id_stock := 0 ;
   
   for  prows IN ( SELECT   "codcombi"  as codcombi,"C" as C,"DESCRIPCION" as DESCRIPCION,
-                            "º" AS   preciocompra, "PL"  AS PL , '<html>' || "DESCRIPCION"  AS display,  
+                            "º" AS   preciocompra, "PL"  AS PL , 
+                            '<html>' || "DESCRIPCION" || ' - ' || UPPER(TRIM("TALLE")) || ', ' || UPPER(TRIM("COLOR")) AS display,  
                              "PROV"  as PROV,1  as cantidad,"VENDIDO/NO VENDIDO" as fechaventa , "FECHA COMPRA" as fechacompra,
                              UPPER(TRIM("TALLE")) as TALLE,UPPER(TRIM("COLOR"))as COLOR 
                       FROM "LISTAS"
