@@ -361,7 +361,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
             int i = m_jTax.getSelectedIndex();
             tax = taxeslogic.getTaxInfo(taxcategorieslist.get(i), m_oTicket.getCustomer());
             
-            oProduct.setTaxCategoryID(tax.getId());
+            oProduct.setTaxCategoryID(tax.getTaxCategoryID());
         } else {
             tax = taxeslogic.getTaxInfo(oProduct.getTaxCategoryID(), m_oTicket.getCustomer());
         }
