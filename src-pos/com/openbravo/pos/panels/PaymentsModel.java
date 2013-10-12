@@ -146,7 +146,8 @@ public class PaymentsModel {
         Object[] valtickets = (Object []) new StaticSentence(app.getSession()
             , "SELECT COUNT(*), SUM(PAYMENTS.TOTAL) " +
               "FROM PAYMENTS, RECEIPTS " +
-              "WHERE PAYMENTS.RECEIPT = RECEIPTS.ID AND RECEIPTS.MONEY = ?"
+              "WHERE PAYMENTS.RECEIPT = RECEIPTS.ID AND RECEIPTS.MONEY = ?" +
+              "AND (PAYMENTS.PAYMENT = 'cash' OR PAYMENTS.PAYMENT = 'cashin')"
             , SerializerWriteString.INSTANCE
             , new SerializerReadBasic(new Datas[] {Datas.INT, Datas.DOUBLE}))
             .find(app.getActiveCashIndex());
