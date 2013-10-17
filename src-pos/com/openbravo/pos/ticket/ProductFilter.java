@@ -80,26 +80,15 @@ public class ProductFilter extends javax.swing.JPanel implements ReportEditorCre
     }
    
     public Object createValue() throws BasicException {
-        
-        if (m_jBarcode.getText() == null || m_jBarcode.getText().equals("")) {
-            // Filtro por formulario
+
+            // Filtro por formulario + codigo de barras
             return new Object[] {
                 m_jCboName.getSelectedItem(), m_jName.getText(),
                 m_jCboPriceBuy.getSelectedItem(), Formats.CURRENCY.parseValue(m_jPriceBuy.getText()),           
                 m_jCboPriceSell.getSelectedItem(), Formats.CURRENCY.parseValue(m_jPriceSell.getText()),
                 m_CategoryModel.getSelectedKey() == null ? QBFCompareEnum.COMP_NONE : QBFCompareEnum.COMP_EQUALS, m_CategoryModel.getSelectedKey(),
-                QBFCompareEnum.COMP_NONE, null         
+                QBFCompareEnum.COMP_RE, "%" + m_jBarcode.getText() + "%"        
             };
-        } else {            
-            // Filtro por codigo de barras.
-            return new Object[] {
-                QBFCompareEnum.COMP_NONE, null,
-                QBFCompareEnum.COMP_NONE, null,
-                QBFCompareEnum.COMP_NONE, null,
-                QBFCompareEnum.COMP_NONE, null,
-                QBFCompareEnum.COMP_RE, "%" + m_jBarcode.getText() + "%"
-            };
-        }
     } 
  
     
