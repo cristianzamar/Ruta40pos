@@ -377,6 +377,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
             {
                 JProductAttEdit attedit = JProductAttEdit.getAttributesEditor(this, m_App.getSession());
                 attedit.editAttributes(oLine.getProductAttSetId(), oLine.getProductAttSetInstId());
+                attedit.setTitle(oLine.getProductName());
                 attedit.setVisible(true);
                 if (attedit.isOK()) {
                     // The user pressed OK
