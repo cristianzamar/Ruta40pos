@@ -97,6 +97,9 @@ public class TicketLineInfo implements SerializableWrite, SerializableRead, Seri
             if (product.getCategoryID() != null) {
                 attributes.setProperty("product.categoryid", product.getCategoryID());
             }
+            if (product.getCode() != null) {
+                attributes.setProperty("product.barcode", product.getCode());
+            }
         }
         init(pid, null, dMultiply, dPrice, tax, attributes);
     }
@@ -191,6 +194,10 @@ public class TicketLineInfo implements SerializableWrite, SerializableRead, Seri
 
     public String getProductName() {
         return attributes.getProperty("product.name");
+    }
+    
+    public String getProductBarcode() {
+        return attributes.getProperty("product.barcode");
     }
 
     public String getProductAttSetId() {
