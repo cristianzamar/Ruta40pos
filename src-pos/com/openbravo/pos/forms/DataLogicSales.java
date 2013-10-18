@@ -213,7 +213,10 @@ public class DataLogicSales extends BeanFactoryDataSingle {
 	return new StaticSentence(s
 		, new QBFBuilder(
 		  "SELECT ID, REFERENCE, CODE, NAME, ISCOM, ISSCALE, PRICEBUY, PRICESELL, TAXCAT, CATEGORY, ATTRIBUTESET_ID, IMAGE, ATTRIBUTES, ISKITCHEN, ISSERVICE, DISPLAY " +
-		  "FROM PRODUCTS WHERE ?(QBF_FILTER) ORDER BY REFERENCE", new String[] {"NAME", "PRICEBUY", "PRICESELL", "CATEGORY", "CODE"})
+		  //"FROM PRODUCTS WHERE ?(QBF_FILTER) " + 
+                  //volver a original cuando haya un solo codigo para productos iguales con distintos atributos
+                  "FROM PRODUCTS, STOCKCURRENT WHERE ?(QBF_FILTER) AND ID = PRODUCT AND UNITS > 0 " +
+                  "ORDER BY CODE", new String[] {"NAME", "PRICEBUY", "PRICESELL", "CATEGORY", "CODE"})
 		, new SerializerWriteBasic(new Datas[] {Datas.OBJECT, Datas.STRING, Datas.OBJECT, Datas.DOUBLE, Datas.OBJECT, Datas.DOUBLE, Datas.OBJECT, Datas.STRING, Datas.OBJECT, Datas.STRING})
 		, ProductInfoExt.getSerializerRead());
     }
