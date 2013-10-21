@@ -160,8 +160,13 @@ public final class StockDiaryEditor extends javax.swing.JPanel implements Editor
     public void writeValueInsert() {
         m_sID = UUID.randomUUID().toString();
         m_jdate.setText(Formats.TIMESTAMP.formatValue(DateUtils.getTodayMinutes()));
-        m_ReasonModel.setSelectedItem(MovementReason.IN_PURCHASE);
+        
+        if (m_ReasonModel.getSelectedItem() == null) {
+            m_ReasonModel.setSelectedItem(MovementReason.IN_PURCHASE);
+        }
+        
         m_LocationsModel.setSelectedKey(m_App.getInventoryLocation());
+        /*
         productid = null;
         productref = null;
         productcode = null;
@@ -170,12 +175,15 @@ public final class StockDiaryEditor extends javax.swing.JPanel implements Editor
         m_jcodebar.setText(null);
         jproduct.setText(null);
         attsetid = null;
+        */
         attsetinstid = null;
         attsetinstdesc = null;
         jattributes.setText(null);
+        /*
         m_jcodebar.setText(null);
         m_junits.setText(null);
         m_jprice.setText(null);
+        */
         m_jdate.setEnabled(true);
         m_jbtndate.setEnabled(true);
         m_jreason.setEnabled(true);
