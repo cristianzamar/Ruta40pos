@@ -173,7 +173,7 @@ public class JTicketsFinder extends javax.swing.JDialog implements EditorCreator
     @Override
     public Object createValue() throws BasicException {
         
-        Object[] afilter = new Object[14];
+        Object[] afilter = new Object[16];
         
         // Ticket ID
         if (jtxtTicketID.getText() == null || jtxtTicketID.getText().equals("")) {
@@ -227,6 +227,15 @@ public class JTicketsFinder extends javax.swing.JDialog implements EditorCreator
         } else {
             afilter[12] = QBFCompareEnum.COMP_RE;
             afilter[13] = "%" + jtxtCustomer.getText() + "%";
+        }
+        
+        //barcode
+        if (jtxtBarcode.getText() == null || jtxtBarcode.getText().equals("")) {
+            afilter[14] = QBFCompareEnum.COMP_NONE;
+            afilter[15] = null;
+        } else {
+            afilter[14] = QBFCompareEnum.COMP_RE;
+            afilter[15] = "%" + jtxtBarcode.getText() + "%";
         }
         
         return afilter;
@@ -290,6 +299,8 @@ public class JTicketsFinder extends javax.swing.JDialog implements EditorCreator
         jtxtCustomer = new javax.swing.JTextField();
         btnCustomer = new javax.swing.JButton();
         jComboBoxTicket = new javax.swing.JComboBox();
+        jtxtBarcode = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -310,7 +321,7 @@ public class JTicketsFinder extends javax.swing.JDialog implements EditorCreator
 
         jPanel5.setLayout(new java.awt.BorderLayout());
 
-        jPanel7.setPreferredSize(new java.awt.Dimension(0, 210));
+        jPanel7.setPreferredSize(new java.awt.Dimension(400, 245));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText(AppLocal.getIntString("label.ticketid")); // NOI18N
@@ -385,6 +396,9 @@ public class JTicketsFinder extends javax.swing.JDialog implements EditorCreator
 
         jComboBoxTicket.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setText("Incl. Cod. de Barras");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -392,13 +406,18 @@ public class JTicketsFinder extends javax.swing.JDialog implements EditorCreator
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jtxtCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -421,8 +440,9 @@ public class JTicketsFinder extends javax.swing.JDialog implements EditorCreator
                         .addComponent(jcboMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jtxtMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jcboUser, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                    .addComponent(jcboUser, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtBarcode, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -458,7 +478,11 @@ public class JTicketsFinder extends javax.swing.JDialog implements EditorCreator
                     .addComponent(jLabel7)
                     .addComponent(jtxtMoney, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcboMoney, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(19, 19, 19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxtBarcode, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addContainerGap())
         );
 
         jPanel5.add(jPanel7, java.awt.BorderLayout.CENTER);
@@ -558,8 +582,8 @@ public class JTicketsFinder extends javax.swing.JDialog implements EditorCreator
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_END);
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-695)/2, (screenSize.height-527)/2, 695, 527);
+        setSize(new java.awt.Dimension(737, 601));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     private void jcmdOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcmdOKActionPerformed
         selectedTicket = (FindTicketsInfo) jListTickets.getSelectedValue();
@@ -650,6 +674,7 @@ private void btnCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox jComboBoxTicket;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
@@ -670,6 +695,7 @@ private void btnCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JComboBox jcboUser;
     private javax.swing.JButton jcmdCancel;
     private javax.swing.JButton jcmdOK;
+    private javax.swing.JTextField jtxtBarcode;
     private javax.swing.JTextField jtxtCustomer;
     private com.openbravo.editor.JEditorCurrency jtxtMoney;
     private com.openbravo.editor.JEditorIntegerPositive jtxtTicketID;
