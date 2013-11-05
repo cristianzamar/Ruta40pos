@@ -2,23 +2,23 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="closedproducts" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20">
 	<property name="ireport.scriptlethandling" value="0"/>
 	<property name="ireport.encoding" value="UTF-8"/>
-	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="380"/>
+	<property name="ireport.y" value="51"/>
 	<import value="net.sf.jasperreports.engine.*"/>
 	<import value="java.util.*"/>
 	<import value="net.sf.jasperreports.engine.data.*"/>
 	<parameter name="ARG" class="java.lang.Object" isForPrompting="false"/>
 	<queryString>
-		<![CDATA[SELECT 
+		<![CDATA[SELECT
                             CLOSEDCASH.HOST,
                             CLOSEDCASH.MONEY,
                             CLOSEDCASH.DATEEND,
                             PRODUCTS.REFERENCE,
                             PRODUCTS.NAME,
                             SUM(TICKETLINES.UNITS) AS UNITS,
-                            SUM(TICKETLINES.UNITS * TICKETLINES.PRICE) AS TOTAL
-                        FROM 
+                            SUM(TICKETLINES.UNITS * TICKETLINES.PRICE) AS TOTAL,
+                        FROM
                             CLOSEDCASH, RECEIPTS, TICKETS, TICKETLINES LEFT OUTER JOIN PRODUCTS ON TICKETLINES.PRODUCT = PRODUCTS.ID
                         WHERE
                             CLOSEDCASH.MONEY = RECEIPTS.MONEY AND RECEIPTS.ID = TICKETS.ID AND TICKETS.ID = TICKETLINES.TICKET
@@ -48,6 +48,10 @@
 	</variable>
 	<variable name="PARTIALUNITS" class="java.lang.Double" resetType="Group" resetGroup="byhost" calculation="Sum">
 		<variableExpression><![CDATA[$F{UNITS}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="TOTALGRAL" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{BIGTOTAL}]]></variableExpression>
 		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
 	</variable>
 	<group name="byproduct">
@@ -471,6 +475,31 @@
 		</band>
 	</pageFooter>
 	<summary>
-		<band/>
+		<band height="60">
+			<textField>
+				<reportElement mode="Opaque" x="400" y="25" width="133" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[com.openbravo.format.Formats.CURRENCY.formatValue($V{TOTALGRAL})]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField-30" mode="Opaque" x="216" y="25" width="110" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None">
+					<font fontName="Arial" size="11" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{label.totalgral}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="232" y="17" width="301" height="1"/>
+			</line>
+		</band>
 	</summary>
 </jasperReport>
