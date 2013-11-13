@@ -36,6 +36,8 @@ public class PaymentInfoMagcard extends PaymentInfo {
     protected String m_sErrorMessage;
     protected String m_sReturnMessage;
     
+    protected int m_iTipo; //tipo de tarjeta (visa, mastercard, etc)
+    
     /** Creates a new instance of PaymentInfoMagcard */
     public PaymentInfoMagcard(String sHolderName, String sCardNumber, String sExpirationDate, String track1, String track2, String track3, String sTransactionID, double dTotal) {
         m_sHolderName = sHolderName;
@@ -58,6 +60,13 @@ public class PaymentInfoMagcard extends PaymentInfo {
         this(sHolderName, sCardNumber, sExpirationDate, null, null, null, sTransactionID, dTotal);
     }
     
+    //incluye tipo de tarjeta
+    public PaymentInfoMagcard(String sHolderName, String sCardNumber, String sExpirationDate, String track1, String track2, String track3, String sTransactionID, int iTipo, double dTotal) {
+        this(sHolderName, sCardNumber, sExpirationDate, track1, track2, track3, sTransactionID, dTotal);
+        
+        m_iTipo = iTipo;
+    }
+    
     @Override
     public PaymentInfo copyPayment(){
         PaymentInfoMagcard p = new PaymentInfoMagcard(m_sHolderName, m_sCardNumber, m_sExpirationDate, track1, track2, track3, m_sTransactionID, m_dTotal);
@@ -74,13 +83,22 @@ public class PaymentInfoMagcard extends PaymentInfo {
     public double getTotal() {
         return m_dTotal;
     }         
+       
+    @Override
+    public int getTipo(){
+        return m_iTipo;
+    };
     
     public boolean isPaymentOK() {
         return m_sAuthorization != null;
     }    
+    
+    @Override
     public String getHolderName() {
         return m_sHolderName;
     }
+    
+    @Override
     public String getCardNumber() {
         return m_sCardNumber;
     }

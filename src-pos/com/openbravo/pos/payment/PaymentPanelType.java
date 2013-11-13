@@ -89,6 +89,7 @@ public class PaymentPanelType extends javax.swing.JPanel implements PaymentPanel
                     null,                    
                     null,                    
                     m_sTransactionID,
+                    m_jTipo.getSelectedIndex(),
                     m_dTotal);
         } else {
             return new PaymentInfoMagcardRefund(
@@ -141,6 +142,8 @@ public class PaymentPanelType extends javax.swing.JPanel implements PaymentPanel
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        m_jTipo = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -155,14 +158,23 @@ public class PaymentPanelType extends javax.swing.JPanel implements PaymentPanel
 
         add(jPanel2, java.awt.BorderLayout.EAST);
 
+        m_jExpirationDate.setEnabled(false);
+
         jLabel8.setText(AppLocal.getIntString("label.cardholder")); // NOI18N
 
         jLabel6.setText(AppLocal.getIntString("label.cardnumber")); // NOI18N
 
         jLabel7.setText(AppLocal.getIntString("label.cardexpdate")); // NOI18N
+        jLabel7.setEnabled(false);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         jLabel2.setText("MMYY");
+
+        m_jTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Argencard", "Cabal", "Maestro", "Mastercard", "Naranja", "VISA", "VISA Débito" }));
+        m_jTipo.setSelectedIndex(5);
+        m_jTipo.setPreferredSize(new java.awt.Dimension(56, 25));
+
+        jLabel3.setText("Tarjeta");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -180,13 +192,15 @@ public class PaymentPanelType extends javax.swing.JPanel implements PaymentPanel
                         .addGap(0, 0, 0)
                         .addComponent(m_jCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(m_jExpirationDate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)
-                        .addComponent(jLabel2)))
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(56, 56, 56)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(m_jExpirationDate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(m_jTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(60, 60, 60))
         );
         jPanel4Layout.setVerticalGroup(
@@ -205,7 +219,12 @@ public class PaymentPanelType extends javax.swing.JPanel implements PaymentPanel
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(m_jExpirationDate, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(m_jExpirationDate, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(m_jTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addContainerGap())
         );
 
         add(jPanel4, java.awt.BorderLayout.CENTER);
@@ -221,6 +240,7 @@ public class PaymentPanelType extends javax.swing.JPanel implements PaymentPanel
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -232,6 +252,7 @@ public class PaymentPanelType extends javax.swing.JPanel implements PaymentPanel
     private com.openbravo.editor.JEditorStringNumber m_jExpirationDate;
     private com.openbravo.editor.JEditorString m_jHolderName;
     private com.openbravo.editor.JEditorKeys m_jKeys;
+    private javax.swing.JComboBox m_jTipo;
     // End of variables declaration//GEN-END:variables
     
 }

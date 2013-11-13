@@ -474,7 +474,7 @@ public class DataLogicSales extends BeanFactoryDataSingle {
                 }
 
                 SentenceExec paymentinsert = new PreparedSentence(s
-                    , "INSERT INTO PAYMENTS (ID, RECEIPT, PAYMENT, TOTAL, TRANSID, RETURNMSG) VALUES (?, ?, ?, ?, ?, ?)"
+                    , "INSERT INTO PAYMENTS (ID, RECEIPT, PAYMENT, TOTAL, TRANSID, NOTES, RETURNMSG, TITULAR, CUPON) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
                     , SerializerWriteParams.INSTANCE);
                 for (final PaymentInfo p : ticket.getPayments()) {
                     paymentinsert.exec(new DataParams() {@Override
@@ -484,7 +484,16 @@ public class DataLogicSales extends BeanFactoryDataSingle {
                         setString(3, p.getName());
                         setDouble(4, p.getTotal());
                         setString(5, ticket.getTransactionID());
-                        setBytes(6, (byte[]) Formats.BYTEA.parseValue(ticket.getReturnMessage()));
+                        setInt(6, "magcard".equals(p.getName())
+                                ? p.getTipo()
+                                : null); 
+                        setBytes(7, (byte[]) Formats.BYTEA.parseValue(ticket.getReturnMessage()));
+                        setString(8, "magcard".equals(p.getName())
+                                ? p.getHolderName()
+                                : null); 
+                        setString(9, "magcard".equals(p.getName())
+                                ? p.getCardNumber()
+                                : null);
                     }});
 
                     if ("debt".equals(p.getName()) || "debtpaid".equals(p.getName())) {

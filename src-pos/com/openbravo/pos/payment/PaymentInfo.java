@@ -20,6 +20,7 @@
 package com.openbravo.pos.payment;
 
 import com.openbravo.format.Formats;
+import org.apache.commons.lang.NotImplementedException;
 
 public abstract class PaymentInfo {
     
@@ -31,4 +32,17 @@ public abstract class PaymentInfo {
     public String printTotal() {
         return Formats.CURRENCY.formatValue(new Double(getTotal()));
     }
+    
+    public int getTipo() {
+        return 0;
+    }
+    
+    public String getHolderName() {
+        return "";
+    }
+    
+    public String getCardNumber() {
+        return "";
+    }
+    
 }
