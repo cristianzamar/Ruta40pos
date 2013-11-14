@@ -30,10 +30,11 @@ report.setSentence("SELECT " +
                     "CLOSEDCASH.DATESTART, " +
                     "CLOSEDCASH.DATEEND, " +
                     "PAYMENTS.PAYMENT, " +
-                    "SUM(PAYMENTS.TOTAL) AS TOTAL " +
+                    "SUM(PAYMENTS.TOTAL) AS TOTAL, " +
+                    "PAYMENTS.NOTES " +
                     "FROM CLOSEDCASH, PAYMENTS, RECEIPTS " +
                     "WHERE CLOSEDCASH.MONEY = RECEIPTS.MONEY AND PAYMENTS.RECEIPT = RECEIPTS.ID AND ?(QBF_FILTER) " +
-                    "GROUP BY CLOSEDCASH.HOST, CLOSEDCASH.HOSTSEQUENCE, CLOSEDCASH.MONEY, CLOSEDCASH.DATESTART, CLOSEDCASH.DATEEND, PAYMENTS.PAYMENT " +
+                    "GROUP BY CLOSEDCASH.HOST, CLOSEDCASH.HOSTSEQUENCE, CLOSEDCASH.MONEY, CLOSEDCASH.DATESTART, CLOSEDCASH.DATEEND, PAYMENTS.PAYMENT, PAYMENTS.NOTES " +
                     "ORDER BY CLOSEDCASH.HOST, CLOSEDCASH.HOSTSEQUENCE");
 
 report.addParameter("CLOSEDCASH.DATEEND");
@@ -51,6 +52,7 @@ report.addField("DATESTART", com.openbravo.data.loader.Datas.TIMESTAMP);
 report.addField("DATEEND", com.openbravo.data.loader.Datas.TIMESTAMP);
 report.addField("PAYMENT", com.openbravo.data.loader.Datas.STRING);
 report.addField("TOTAL", com.openbravo.data.loader.Datas.DOUBLE);
+report.addField("NOTES", com.openbravo.data.loader.Datas.STRING);
 
 report;
 
