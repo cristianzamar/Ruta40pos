@@ -883,6 +883,10 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
                 } else {
                     Toolkit.getDefaultToolkit().beep();
                 }
+            } else {
+                m_jPrice.setText(m_jPrice.getText() + cTrans);
+                m_iNumberStatus = NUMBER_INPUTINT;    
+                m_iNumberStatusInput = NUMBERVALID;
             }
         }
     }
