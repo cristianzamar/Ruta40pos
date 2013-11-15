@@ -67,6 +67,7 @@ public class TicketLineInfo implements SerializableWrite, SerializableRead, Seri
         Properties props = new Properties();
         props.setProperty("product.name", productname);
         props.setProperty("product.taxcategoryid", producttaxcategory);
+        props.setProperty("product.barcode", "");
         init(null, null, dMultiply, dPrice, tax, props);
     }
 
