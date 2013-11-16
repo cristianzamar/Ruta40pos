@@ -463,9 +463,9 @@ public class JRootApp extends JPanel implements AppView {
                 btn.setFocusable(false);
                 btn.setRequestFocusEnabled(false);
                 btn.setHorizontalAlignment(SwingConstants.LEADING);
-                btn.setMaximumSize(new Dimension(110, 50));
-                btn.setPreferredSize(new Dimension(110, 50));
-                btn.setMinimumSize(new Dimension(110, 50));
+                btn.setMaximumSize(new Dimension(235, 50));
+                btn.setPreferredSize(new Dimension(235, 50));
+                btn.setMinimumSize(new Dimension(235, 50));
         
                 jPeople.add(btn);                    
             }
@@ -665,16 +665,9 @@ public class JRootApp extends JPanel implements AppView {
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/logo.png"))); // NOI18N
-        jLabel1.setText("<html><center>uniCenta oPOS - Touch Friendly Point of Sale<br>" +
-            "Copyright \u00A9 2009-2012 uniCenta <br>" +
-            "http://www.unicenta.net/<br>" +
-            "<br>" +
-            "uniCenta oPOS is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br>" +
-            "<br>" +
-            "uniCenta oPOS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.<br>" +
-            "<br>" +
-            "You should have received a copy of the GNU General Public License along with uniCenta oPOS.  If not, see http://www.gnu.org/licenses/<br>" +
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/logoRuta40.png"))); // NOI18N
+        jLabel1.setText("<html><center>Lic. Cristian R. Zamar<br>" +
+            "cristianzamar@gmail.com <br>" +
             "</center>");
         jLabel1.setAlignmentX(0.5F);
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -731,7 +724,7 @@ public class JRootApp extends JPanel implements AppView {
                         .add(0, 0, Short.MAX_VALUE))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .add(m_jClose, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)))
+                        .add(m_jClose, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -748,10 +741,8 @@ public class JRootApp extends JPanel implements AppView {
             jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel5Layout.createSequentialGroup()
                 .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .add(jScrollPane1))
+                    .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE))
                 .add(28, 28, 28)
                 .add(m_jLogonName, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(0, 0, Short.MAX_VALUE))

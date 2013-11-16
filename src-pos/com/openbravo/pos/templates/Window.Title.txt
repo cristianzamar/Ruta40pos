@@ -1,1 +1,1 @@
-uniCenta oPOS - Touch Friendly Point Of Sale
+RutaPOS v1.3 - Basado en uniCenta oPOS

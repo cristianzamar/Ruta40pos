@@ -72,7 +72,7 @@ public class JRootFrame extends javax.swing.JFrame implements AppMessage {
                 this.setIconImage(ImageIO.read(JRootFrame.class.getResourceAsStream("/com/openbravo/images/favicon.png")));
             } catch (IOException e) {
             }   
-            setTitle(AppLocal.APP_NAME + " - " + AppLocal.APP_VERSION);
+            setTitle("RutaPOS v1.3");
             pack();
             setLocationRelativeTo(null);        
             
@@ -104,6 +104,7 @@ public class JRootFrame extends javax.swing.JFrame implements AppMessage {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
