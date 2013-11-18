@@ -281,6 +281,9 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
                 //Make disable Search and Edit Buttons
                 m_jEditLine.setVisible(false);
                 m_jList.setVisible(false);
+            } else {
+                m_jEditLine.setVisible(true);
+                m_jList.setVisible(true);
             }
             
             // Refresh ticket taxes
@@ -364,6 +367,11 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
             oProduct.setTaxCategoryID(tax.getTaxCategoryID());
         } else {
             tax = taxeslogic.getTaxInfo(oProduct.getTaxCategoryID(), m_oTicket.getCustomer());
+        }
+        
+        if (m_oTicket.getTicketType() == TicketInfo.RECEIPT_REFUND) {
+            dMul *= -1;
+            dPrice = 0;
         }
 
         addTicketLine(new TicketLineInfo(oProduct, dMul, dPrice, tax, (java.util.Properties) (oProduct.getProperties().clone())));

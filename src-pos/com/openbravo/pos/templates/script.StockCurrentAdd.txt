@@ -25,6 +25,7 @@ import com.openbravo.pos.forms.DataLogicSales;
 import com.openbravo.pos.forms.DataLogicSystem;
 import com.openbravo.data.loader.Session;
 import java.util.Properties;
+import com.openbravo.pos.ticket.TicketInfo;
  
 Session session = new Session(dbURL, dbUser, dbPassword);
 DataLogicSales logicsale = new DataLogicSales();
@@ -41,17 +42,17 @@ multiply = 0;
  
 if (line.isProductService() == true) {
     javax.swing.JOptionPane.showMessageDialog(null, "This is a Service and Stock Level is not checked", "Stock Check", JOptionPane.WARNING_MESSAGE);
-} else {
+} else if (ticket.getTicketType() != TicketInfo.RECEIPT_REFUND){
     
     for (int i= 0; i < ticket.getLinesCount(); i++) {
         row = ticket.getLine(i);
         if (row.getProductID().equals(product) && row.getProductAttSetInstId().equals(attsetinstid)) {
-                multiply = multiply + row.getMultiply();
+                multiply += row.getMultiply();
         }
     }
     diff = units - line.getMultiply() - multiply;
         if (diff < 0.0) {
-            javax.swing.JOptionPane.showMessageDialog(null, "Not enough stock at this Location " + loc + " - Use Stock Diary to Add Stock to Inventory", "Stock Check", JOptionPane.WARNING_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(null, "No hay stock suficiente para la selección realizada.", "Ventas", JOptionPane.WARNING_MESSAGE);
 	    return "Cancel";
 	 } else {
 	    return null;
