@@ -29,7 +29,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/openbravo/images/sale_new.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="New Sale"/>
+            <Property name="toolTipText" type="java.lang.String" value="Nueva venta"/>
             <Property name="focusPainted" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -46,7 +46,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/openbravo/images/sale_delete.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Cancel Sale"/>
+            <Property name="toolTipText" type="java.lang.String" value="Cancelar venta"/>
             <Property name="focusPainted" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
@@ -63,7 +63,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/openbravo/images/sale_pending.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Layaways"/>
+            <Property name="toolTipText" type="java.lang.String" value="Mostrar recibos"/>
             <Property name="focusPainted" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">

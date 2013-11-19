@@ -1281,7 +1281,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         m_jButtons.add(m_jTicketId);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/customer_add_sml.png"))); // NOI18N
-        jButton1.setToolTipText("Add New Customer");
+        jButton1.setToolTipText("Nuevo cliente");
         jButton1.setFocusPainted(false);
         jButton1.setFocusable(false);
         jButton1.setMargin(new java.awt.Insets(8, 14, 8, 14));
@@ -1294,7 +1294,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         m_jButtons.add(jButton1);
 
         btnCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/customer_sml.png"))); // NOI18N
-        btnCustomer.setToolTipText("Show Customers");
+        btnCustomer.setToolTipText("Mostrar clientes");
         btnCustomer.setFocusPainted(false);
         btnCustomer.setFocusable(false);
         btnCustomer.setMargin(new java.awt.Insets(8, 14, 8, 14));
@@ -1307,7 +1307,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         m_jButtons.add(btnCustomer);
 
         btnSplit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/sale_split_sml.png"))); // NOI18N
-        btnSplit.setToolTipText("Split Sale");
+        btnSplit.setToolTipText("Dividir venta");
         btnSplit.setFocusPainted(false);
         btnSplit.setFocusable(false);
         btnSplit.setMargin(new java.awt.Insets(8, 14, 8, 14));
@@ -1359,7 +1359,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         jPanel2.setLayout(new java.awt.GridLayout(0, 1, 5, 5));
 
         m_jUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/1uparrow.png"))); // NOI18N
-        m_jUp.setToolTipText("Scroll Up a Line");
+        m_jUp.setToolTipText("Subir una línea");
         m_jUp.setFocusPainted(false);
         m_jUp.setFocusable(false);
         m_jUp.setMargin(new java.awt.Insets(8, 14, 8, 14));
@@ -1375,7 +1375,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         jPanel2.add(m_jUp);
 
         m_jDown.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/1downarrow.png"))); // NOI18N
-        m_jDown.setToolTipText("Scroll Down a Line");
+        m_jDown.setToolTipText("Bajar una línea");
         m_jDown.setFocusPainted(false);
         m_jDown.setFocusable(false);
         m_jDown.setMargin(new java.awt.Insets(8, 14, 8, 14));
@@ -1391,7 +1391,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         jPanel2.add(m_jDown);
 
         m_jDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/editdelete.png"))); // NOI18N
-        m_jDelete.setToolTipText("Remove Line");
+        m_jDelete.setToolTipText("Quitar línea");
         m_jDelete.setFocusPainted(false);
         m_jDelete.setFocusable(false);
         m_jDelete.setMargin(new java.awt.Insets(8, 14, 8, 14));
@@ -1407,7 +1407,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         jPanel2.add(m_jDelete);
 
         m_jList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/search32.png"))); // NOI18N
-        m_jList.setToolTipText("Product Search");
+        m_jList.setToolTipText("Buscar producto");
         m_jList.setFocusPainted(false);
         m_jList.setFocusable(false);
         m_jList.setMargin(new java.awt.Insets(8, 14, 8, 14));
@@ -1423,7 +1423,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         jPanel2.add(m_jList);
 
         m_jEditLine.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/sale_editline.png"))); // NOI18N
-        m_jEditLine.setToolTipText("Edit Line");
+        m_jEditLine.setToolTipText("Editar línea");
         m_jEditLine.setFocusPainted(false);
         m_jEditLine.setFocusable(false);
         m_jEditLine.setMargin(new java.awt.Insets(8, 14, 8, 14));
@@ -1439,7 +1439,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         jPanel2.add(m_jEditLine);
 
         jEditAttributes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/attributes.png"))); // NOI18N
-        jEditAttributes.setToolTipText("Choose Attributes");
+        jEditAttributes.setToolTipText("Elegir atributos");
         jEditAttributes.setEnabled(false);
         jEditAttributes.setFocusPainted(false);
         jEditAttributes.setFocusable(false);
@@ -1568,7 +1568,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         jPanel9.add(m_jPor, gridBagConstraints);
 
         m_jEnter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/barcode.png"))); // NOI18N
-        m_jEnter.setToolTipText("Get Barcode");
+        m_jEnter.setToolTipText("Procesar código");
         m_jEnter.setFocusPainted(false);
         m_jEnter.setFocusable(false);
         m_jEnter.setRequestFocusEnabled(false);
@@ -1588,6 +1588,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         jPanel9.add(m_jEnter, gridBagConstraints);
 
         m_jTax.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        m_jTax.setToolTipText("Recargos");
         m_jTax.setFocusable(false);
         m_jTax.setPreferredSize(new java.awt.Dimension(28, 25));
         m_jTax.setRequestFocusEnabled(false);
