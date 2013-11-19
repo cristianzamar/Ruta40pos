@@ -42,14 +42,19 @@ if borrar = 1 then
       delete from attributevalue;
       delete from attribute   ;
       
-
-    -- borrado de productos
+        delete from  "ticketlines";
+        delete from "tickets";
+	delete from "taxlines";
+	delete from "payments";
+        delete from "receipts";          
+        delete from "closedcash";
+        
 	delete from  products_cat;
 
 	delete from  "stockdiary";
 	delete from  "stockcurrent";
 	delete from  "stocklevel";
-	delete from  "ticketlines";
+	 
 	delete from   products;
 	delete from   attributeset;
 	delete from   attributesetinstance;
