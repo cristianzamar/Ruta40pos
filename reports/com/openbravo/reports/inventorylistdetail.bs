@@ -26,7 +26,7 @@ report.setResourceBundle("com/openbravo/reports/inventorylistdetail_messages");
 report.setSentence("SELECT " +
                 "STOCKCURRENT.LOCATION AS LOCATIONID, " +
                 "LOCATIONS.NAME AS LOCATIONNAME, " +
-                "PRODUCTS.REFERENCE, " +
+                "PRODUCTS.CODE, " +
                 "PRODUCTS.NAME AS NAME, " +
                 "STOCKCURRENT.ATTRIBUTESETINSTANCE_ID, " +
                 "ATTRIBUTESETINSTANCE.DESCRIPTION, " +
@@ -54,7 +54,7 @@ report.addQBFFilter(new com.openbravo.pos.reports.JParamsLocationWithFirst());
 
 report.addField("LOCATIONID", com.openbravo.data.loader.Datas.STRING);
 report.addField("LOCATIONNAME", com.openbravo.data.loader.Datas.STRING);
-report.addField("REFERENCE", com.openbravo.data.loader.Datas.STRING);
+report.addField("CODE", com.openbravo.data.loader.Datas.STRING);
 report.addField("NAME", com.openbravo.data.loader.Datas.STRING);
 report.addField("ATTINSTANCEID", com.openbravo.data.loader.Datas.STRING);
 report.addField("ATTINSTANCEDESC", com.openbravo.data.loader.Datas.STRING);
