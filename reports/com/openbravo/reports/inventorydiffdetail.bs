@@ -47,7 +47,7 @@ report.addParameter("STOCKDIARY.DATENEW");
 report.addParameter("STOCKDIARY.DATENEW");
 
 paramdates = new com.openbravo.pos.reports.JParamsDatesInterval();
-paramdates.setEndDate(com.openbravo.beans.DateUtils.getToday());
+//paramdates.setEndDate(com.openbravo.beans.DateUtils.getToday());
 
 report.addQBFFilter(paramdates);
 

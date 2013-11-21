@@ -37,7 +37,7 @@ report.addParameter("SHIFTS.STARTSHIFT");
 report.addParameter("SHIFTS.ENDSHIFT");
 
 paramdates = new com.openbravo.pos.reports.JParamsDatesInterval();
-paramdates.setEndDate(com.openbravo.beans.DateUtils.getToday());
+//paramdates.setEndDate(com.openbravo.beans.DateUtils.getToday());
 report.addQBFFilter(paramdates);
 
 report.addField("NAME", com.openbravo.data.loader.Datas.STRING);

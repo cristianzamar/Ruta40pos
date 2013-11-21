@@ -35,7 +35,7 @@ report.addParameter("CLOSEDCASH.DATESTART");
 report.addParameter("CLOSEDCASH.DATESTART");
 
 paramdates = new com.openbravo.pos.reports.JParamsDatesInterval();
-paramdates.setEndDate(com.openbravo.beans.DateUtils.getToday());
+//paramdates.setEndDate(com.openbravo.beans.DateUtils.getToday());
 report.addQBFFilter(paramdates);
 
 report.addField("PAYMENT", com.openbravo.data.loader.Datas.STRING);

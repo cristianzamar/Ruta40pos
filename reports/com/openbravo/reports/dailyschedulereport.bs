@@ -38,7 +38,7 @@ report.addParameter("LEAVES.STARTDATE");
 report.addParameter("LEAVES.ENDDATE");
 
 paramdates = new com.openbravo.pos.reports.JParamsDatesInterval();
-paramdates.setEndDate(com.openbravo.beans.DateUtils.getToday());
+//paramdates.setEndDate(com.openbravo.beans.DateUtils.getToday());
 report.addQBFFilter(paramdates);
 
 report.addField("NAME", com.openbravo.data.loader.Datas.STRING);
