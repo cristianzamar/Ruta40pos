@@ -36,7 +36,7 @@ if ("cash".equals(p.getName())) {
 }
 	
 if(isCash) {
-	FontText.setText("Return: " + change);
+	FontText.setText("Cambio: " + change);
 	JOptionPane.showMessageDialog (null,
 					FontText,
 					"Change", 

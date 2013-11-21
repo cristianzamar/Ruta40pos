@@ -162,7 +162,7 @@ public class PaymentPanelType extends javax.swing.JPanel implements PaymentPanel
 
         jLabel8.setText(AppLocal.getIntString("label.cardholder")); // NOI18N
 
-        jLabel6.setText(AppLocal.getIntString("label.cardnumber")); // NOI18N
+        jLabel6.setText(AppLocal.getIntString("label.lotecupon")); // NOI18N
 
         jLabel7.setText(AppLocal.getIntString("label.cardexpdate")); // NOI18N
         jLabel7.setEnabled(false);
