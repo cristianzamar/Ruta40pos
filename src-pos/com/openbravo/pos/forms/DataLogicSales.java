@@ -249,10 +249,12 @@ public class DataLogicSales extends BeanFactoryDataSingle {
     public SentenceList getTicketsList() {
          return new StaticSentence(s
             , new QBFBuilder(
-            "SELECT T.TICKETID, T.TICKETTYPE, R.DATENEW, P.NAME, C.NAME, SUM(PM.TOTAL) "+ 
+            "SELECT TICKETID, TICKETTYPE, DATENEW, people, customer, SUM(TOTAL) FROM " +
+            "(SELECT DISTINCT T.TICKETID, T.TICKETTYPE, R.DATENEW, P.NAME people, C.NAME customer, PM.TOTAL " +
             "FROM RECEIPTS R JOIN TICKETS T ON R.ID = T.ID LEFT OUTER JOIN PAYMENTS PM ON R.ID = PM.RECEIPT LEFT OUTER JOIN CUSTOMERS C ON C.ID = T.CUSTOMER LEFT OUTER JOIN PEOPLE P ON T.PERSON = P.ID " +
             "LEFT OUTER JOIN ticketlines TL ON TL.ticket = T.id LEFT OUTER JOIN products PR ON PR.id = TL.product " +
-            "WHERE ?(QBF_FILTER) GROUP BY T.ID, T.TICKETID, T.TICKETTYPE, R.DATENEW, P.NAME, C.NAME ORDER BY R.DATENEW DESC, T.TICKETID", new String[] {"T.TICKETID", "T.TICKETTYPE", "PM.TOTAL", "R.DATENEW", "R.DATENEW", "P.NAME", "C.NAME", "PR.CODE"})
+            "WHERE ?(QBF_FILTER) ORDER BY R.DATENEW DESC, T.TICKETID) subcons " +
+            "GROUP BY TICKETID, TICKETTYPE, DATENEW, people, customer ", new String[] {"T.TICKETID", "T.TICKETTYPE", "PM.TOTAL", "R.DATENEW", "R.DATENEW", "P.NAME", "C.NAME", "PR.CODE"})
             , new SerializerWriteBasic(new Datas[] {Datas.OBJECT, Datas.INT, Datas.OBJECT, Datas.INT, Datas.OBJECT, Datas.DOUBLE, Datas.OBJECT, Datas.TIMESTAMP, Datas.OBJECT, Datas.TIMESTAMP, Datas.OBJECT, Datas.STRING, Datas.OBJECT, Datas.STRING, Datas.OBJECT, Datas.STRING})
             , new SerializerReadClass(FindTicketsInfo.class));
     }
