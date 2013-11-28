@@ -27,14 +27,15 @@ report.setSentence("SELECT " +
                 "CLOSEDCASH.HOST, " +
                 "CLOSEDCASH.MONEY, " +
                 "CLOSEDCASH.DATEEND, " +
+                "RECEIPTS.DATENEW, " +
                 "PRODUCTS.REFERENCE, " +
                 "PRODUCTS.NAME, " +
                 "SUM(TICKETLINES.UNITS) AS UNITS, " +
                 "SUM(TICKETLINES.UNITS * TICKETLINES.PRICE) AS TOTAL " +
                 "FROM CLOSEDCASH, RECEIPTS, TICKETS, TICKETLINES LEFT OUTER JOIN PRODUCTS ON TICKETLINES.PRODUCT = PRODUCTS.ID " +
                 "WHERE CLOSEDCASH.MONEY = RECEIPTS.MONEY AND RECEIPTS.ID = TICKETS.ID AND TICKETS.ID = TICKETLINES.TICKET AND ?(QBF_FILTER) " +
-                "GROUP BY CLOSEDCASH.HOST, CLOSEDCASH.MONEY, CLOSEDCASH.DATEEND, PRODUCTS.REFERENCE, PRODUCTS.NAME " +
-                "ORDER BY PRODUCTS.NAME, CLOSEDCASH.HOST, CLOSEDCASH.DATEEND");
+                "GROUP BY CLOSEDCASH.HOST, CLOSEDCASH.MONEY, CLOSEDCASH.DATEEND, RECEIPTS.DATENEW, PRODUCTS.REFERENCE, PRODUCTS.NAME " +
+                "ORDER BY RECEIPTS.DATENEW, PRODUCTS.NAME");
 
 report.addParameter("CLOSEDCASH.DATEEND");
 report.addParameter("CLOSEDCASH.DATEEND");
@@ -54,6 +55,7 @@ report.addQBFFilter(new com.openbravo.pos.ticket.ProductFilter());
 report.addField("HOST", com.openbravo.data.loader.Datas.STRING);
 report.addField("MONEY", com.openbravo.data.loader.Datas.STRING);
 report.addField("DATEEND", com.openbravo.data.loader.Datas.TIMESTAMP);
+report.addField("DATENEW", com.openbravo.data.loader.Datas.TIMESTAMP);
 report.addField("REFERENCE", com.openbravo.data.loader.Datas.STRING);
 report.addField("NAME", com.openbravo.data.loader.Datas.STRING);
 report.addField("UNITS", com.openbravo.data.loader.Datas.DOUBLE);
