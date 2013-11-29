@@ -3,7 +3,7 @@
 	<property name="ireport.scriptlethandling" value="0"/>
 	<property name="ireport.encoding" value="UTF-8"/>
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="209"/>
 	<property name="ireport.y" value="0"/>
 	<import value="net.sf.jasperreports.engine.*"/>
 	<import value="java.util.*"/>
@@ -44,6 +44,13 @@ ORDER BY CLOSEDCASH.HOST, CLOSEDCASH.DATESTART]]>
 	<variable name="DAYTOTAL" class="java.lang.Double" resetType="Group" resetGroup="bymoney" calculation="Sum">
 		<variableExpression><![CDATA[$F{TOTAL}]]></variableExpression>
 		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="CASHTOTAL" class="java.lang.Double" resetType="Group" resetGroup="bymoney" calculation="Sum">
+		<variableExpression><![CDATA[( $F{PAYMENT}.equals("cash") ? $F{TOTAL} :
+    $F{PAYMENT}.equals("cashin") ? $F{TOTAL} :
+    $F{PAYMENT}.equals("cashout") ? $F{TOTAL} :
+    0.0
+)]]></variableExpression>
 	</variable>
 	<group name="byhost">
 		<groupExpression><![CDATA[$F{HOST}]]></groupExpression>
@@ -95,12 +102,6 @@ ORDER BY CLOSEDCASH.HOST, CLOSEDCASH.DATESTART]]>
 					</textElement>
 					<textFieldExpression><![CDATA[com.openbravo.format.Formats.CURRENCY.formatValue($V{PARTIALTOTAL})]]></textFieldExpression>
 				</textField>
-				<line>
-					<reportElement key="line-3" mode="Opaque" x="435" y="0" width="100" height="1" forecolor="#000000" backcolor="#FFFFFF"/>
-					<graphicElement fill="Solid">
-						<pen lineWidth="0.25" lineStyle="Solid"/>
-					</graphicElement>
-				</line>
 				<textField pattern="" isBlankWhenNull="false">
 					<reportElement key="textField-15" mode="Opaque" x="325" y="2" width="110" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
 					<box>
@@ -201,9 +202,9 @@ ORDER BY CLOSEDCASH.HOST, CLOSEDCASH.DATESTART]]>
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="20">
+			<band height="39">
 				<textField pattern="" isBlankWhenNull="false">
-					<reportElement key="textField-5" mode="Opaque" x="435" y="2" width="100" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
+					<reportElement key="textField-5" mode="Opaque" x="435" y="24" width="100" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
 					<box>
 						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -223,7 +224,7 @@ ORDER BY CLOSEDCASH.HOST, CLOSEDCASH.DATESTART]]>
 					</graphicElement>
 				</line>
 				<textField pattern="" isBlankWhenNull="false">
-					<reportElement key="textField-14" mode="Opaque" x="325" y="2" width="110" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
+					<reportElement key="textField-14" mode="Opaque" x="325" y="24" width="110" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
 					<box>
 						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -234,8 +235,42 @@ ORDER BY CLOSEDCASH.HOST, CLOSEDCASH.DATESTART]]>
 						<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 						<paragraph lineSpacing="Single"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$R{label.partialtotal}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$R{label.subtotal}]]></textFieldExpression>
 				</textField>
+				<textField pattern="" isBlankWhenNull="false">
+					<reportElement key="textField-14" mode="Opaque" x="325" y="1" width="110" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Top" rotation="None">
+						<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{label.cashtotal}]]></textFieldExpression>
+				</textField>
+				<textField pattern="" isBlankWhenNull="false">
+					<reportElement key="textField-5" mode="Opaque" x="435" y="1" width="100" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Top" rotation="None">
+						<font fontName="Arial" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[com.openbravo.format.Formats.CURRENCY.formatValue($V{CASHTOTAL})]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement key="line-1" mode="Opaque" x="435" y="20" width="100" height="1" forecolor="#000000" backcolor="#FFFFFF"/>
+					<graphicElement fill="Solid">
+						<pen lineWidth="0.25" lineStyle="Solid"/>
+					</graphicElement>
+				</line>
 			</band>
 		</groupFooter>
 	</group>
