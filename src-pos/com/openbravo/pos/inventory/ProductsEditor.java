@@ -726,7 +726,7 @@ public final class ProductsEditor extends JPanel implements EditorRecord {
         m_jTitle.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         m_jTitle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         add(m_jTitle);
-        m_jTitle.setBounds(310, 0, 240, 20);
+        m_jTitle.setBounds(270, 0, 450, 20);
 
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -735,7 +735,7 @@ public final class ProductsEditor extends JPanel implements EditorRecord {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText(AppLocal.getIntString("label.prodref")); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 10, 65, 25);
+        jLabel1.setBounds(10, 10, 140, 25);
 
         m_jRef.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         m_jRef.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -744,25 +744,25 @@ public final class ProductsEditor extends JPanel implements EditorRecord {
             }
         });
         jPanel1.add(m_jRef);
-        m_jRef.setBounds(130, 10, 80, 25);
+        m_jRef.setBounds(160, 10, 80, 25);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText(AppLocal.getIntString("label.prodbarcode")); // NOI18N
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(10, 40, 110, 25);
+        jLabel6.setBounds(10, 40, 140, 25);
 
         m_jCode.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jPanel1.add(m_jCode);
-        m_jCode.setBounds(130, 40, 170, 25);
+        m_jCode.setBounds(160, 40, 170, 25);
 
         m_jCodetype.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel1.add(m_jCodetype);
-        m_jCodetype.setBounds(310, 40, 90, 25);
+        m_jCodetype.setBounds(340, 40, 90, 25);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText(AppLocal.getIntString("label.prodname")); // NOI18N
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(10, 70, 100, 25);
+        jLabel2.setBounds(10, 70, 140, 25);
 
         m_jName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         m_jName.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -771,30 +771,30 @@ public final class ProductsEditor extends JPanel implements EditorRecord {
             }
         });
         jPanel1.add(m_jName);
-        m_jName.setBounds(130, 70, 270, 25);
+        m_jName.setBounds(160, 70, 270, 25);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText(AppLocal.getIntString("label.prodcategory")); // NOI18N
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(10, 100, 110, 25);
+        jLabel5.setBounds(10, 100, 140, 25);
 
         m_jCategory.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel1.add(m_jCategory);
-        m_jCategory.setBounds(130, 100, 170, 25);
+        m_jCategory.setBounds(160, 100, 170, 25);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel13.setText(AppLocal.getIntString("label.attributes")); // NOI18N
         jPanel1.add(jLabel13);
-        jLabel13.setBounds(10, 130, 110, 25);
+        jLabel13.setBounds(10, 130, 140, 25);
 
         m_jAtt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel1.add(m_jAtt);
-        m_jAtt.setBounds(130, 130, 170, 25);
+        m_jAtt.setBounds(160, 130, 170, 25);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText(AppLocal.getIntString("label.taxcategory")); // NOI18N
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(10, 160, 110, 25);
+        jLabel7.setBounds(10, 160, 140, 25);
 
         m_jTax.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         m_jTax.addActionListener(new java.awt.event.ActionListener() {
@@ -803,12 +803,12 @@ public final class ProductsEditor extends JPanel implements EditorRecord {
             }
         });
         jPanel1.add(m_jTax);
-        m_jTax.setBounds(130, 160, 170, 25);
+        m_jTax.setBounds(160, 160, 170, 25);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel16.setText(AppLocal.getIntString("label.prodpriceselltax")); // NOI18N
         jPanel1.add(jLabel16);
-        jLabel16.setBounds(10, 190, 90, 25);
+        jLabel16.setBounds(10, 190, 140, 25);
 
         m_jPriceSellTax.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         m_jPriceSellTax.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -818,42 +818,42 @@ public final class ProductsEditor extends JPanel implements EditorRecord {
             }
         });
         jPanel1.add(m_jPriceSellTax);
-        m_jPriceSellTax.setBounds(130, 190, 80, 25);
+        m_jPriceSellTax.setBounds(160, 190, 80, 25);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText(AppLocal.getIntString("label.prodpricesell")); // NOI18N
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(210, 190, 100, 25);
+        jLabel4.setBounds(240, 190, 110, 25);
 
         m_jPriceSell.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         m_jPriceSell.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jPanel1.add(m_jPriceSell);
-        m_jPriceSell.setBounds(310, 190, 70, 25);
+        m_jPriceSell.setBounds(350, 190, 70, 25);
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("Margin");
+        jLabel19.setText("Margen");
         jLabel19.setPreferredSize(new java.awt.Dimension(48, 15));
         jPanel1.add(jLabel19);
-        jLabel19.setBounds(400, 190, 60, 25);
+        jLabel19.setBounds(420, 190, 60, 25);
 
         m_jmargin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         m_jmargin.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        m_jmargin.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        m_jmargin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         m_jmargin.setEnabled(false);
         jPanel1.add(m_jmargin);
-        m_jmargin.setBounds(460, 190, 70, 25);
+        m_jmargin.setBounds(480, 190, 70, 25);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText(AppLocal.getIntString("label.prodpricebuy")); // NOI18N
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(10, 220, 80, 25);
+        jLabel3.setBounds(10, 220, 140, 25);
 
         m_jPriceBuy.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         m_jPriceBuy.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jPanel1.add(m_jPriceBuy);
-        m_jPriceBuy.setBounds(130, 220, 80, 25);
+        m_jPriceBuy.setBounds(160, 220, 80, 25);
 
         jTabbedPane1.addTab(AppLocal.getIntString("label.prodgeneral"), jPanel1); // NOI18N
 
@@ -971,7 +971,7 @@ public final class ProductsEditor extends JPanel implements EditorRecord {
         jTabbedPane1.addTab(AppLocal.getIntString("label.properties"), jPanel3); // NOI18N
 
         add(jTabbedPane1);
-        jTabbedPane1.setBounds(5, 0, 550, 280);
+        jTabbedPane1.setBounds(5, 0, 720, 300);
     }// </editor-fold>//GEN-END:initComponents
 
     private void m_jInCatalogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_jInCatalogActionPerformed

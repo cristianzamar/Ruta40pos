@@ -206,7 +206,7 @@ public final class CategoriesEditor extends JPanel implements EditorRecord {
             }
         });
         add(m_jCatalogAdd);
-        m_jCatalogAdd.setBounds(410, 5, 100, 30);
+        m_jCatalogAdd.setBounds(410, 5, 110, 30);
 
         m_jCatalogDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/editdelete.png"))); // NOI18N
         m_jCatalogDelete.setText(AppLocal.getIntString("button.catalogdel")); // NOI18N
@@ -218,7 +218,7 @@ public final class CategoriesEditor extends JPanel implements EditorRecord {
             }
         });
         add(m_jCatalogDelete);
-        m_jCatalogDelete.setBounds(410, 42, 100, 33);
+        m_jCatalogDelete.setBounds(410, 42, 110, 33);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText(AppLocal.getIntString("label.prodcategory")); // NOI18N
@@ -230,7 +230,7 @@ public final class CategoriesEditor extends JPanel implements EditorRecord {
         m_jCategory.setBounds(100, 60, 180, 25);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("In Catalogue?");
+        jLabel1.setText(AppLocal.getIntString("label.prodincatalog")); // NOI18N
         add(jLabel1);
         jLabel1.setBounds(290, 30, 100, 20);
 
