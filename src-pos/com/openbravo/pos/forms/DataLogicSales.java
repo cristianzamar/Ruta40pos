@@ -254,7 +254,8 @@ public class DataLogicSales extends BeanFactoryDataSingle {
             "FROM RECEIPTS R JOIN TICKETS T ON R.ID = T.ID LEFT OUTER JOIN PAYMENTS PM ON R.ID = PM.RECEIPT LEFT OUTER JOIN CUSTOMERS C ON C.ID = T.CUSTOMER LEFT OUTER JOIN PEOPLE P ON T.PERSON = P.ID " +
             "LEFT OUTER JOIN ticketlines TL ON TL.ticket = T.id LEFT OUTER JOIN products PR ON PR.id = TL.product " +
             "WHERE ?(QBF_FILTER) ORDER BY R.DATENEW DESC, T.TICKETID) subcons " +
-            "GROUP BY TICKETID, TICKETTYPE, DATENEW, people, customer ", new String[] {"T.TICKETID", "T.TICKETTYPE", "PM.TOTAL", "R.DATENEW", "R.DATENEW", "P.NAME", "C.NAME", "PR.CODE"})
+            "GROUP BY TICKETID, TICKETTYPE, DATENEW, people, customer " +
+            "ORDER BY DATENEW DESC" , new String[] {"T.TICKETID", "T.TICKETTYPE", "PM.TOTAL", "R.DATENEW", "R.DATENEW", "P.NAME", "C.NAME", "PR.CODE"})
             , new SerializerWriteBasic(new Datas[] {Datas.OBJECT, Datas.INT, Datas.OBJECT, Datas.INT, Datas.OBJECT, Datas.DOUBLE, Datas.OBJECT, Datas.TIMESTAMP, Datas.OBJECT, Datas.TIMESTAMP, Datas.OBJECT, Datas.STRING, Datas.OBJECT, Datas.STRING, Datas.OBJECT, Datas.STRING})
             , new SerializerReadClass(FindTicketsInfo.class));
     }
