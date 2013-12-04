@@ -45,7 +45,7 @@ ORDER BY CATEGORIES.NAME, PRODUCTS.NAME, STOCKCURRENT.LOCATION]]>
 		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
 	</variable>
 	<variable name="GRALTOTAL" class="java.lang.Double" calculation="Sum">
-		<variableExpression><![CDATA[$V{UNITSTOTAL}]]></variableExpression>
+		<variableExpression><![CDATA[$F{UNITS}]]></variableExpression>
 	</variable>
 	<group name="CATEGORIESGROUP">
 		<groupExpression><![CDATA[$F{CATEGORY}]]></groupExpression>
