@@ -86,7 +86,7 @@ public class ProductFilterSales extends javax.swing.JPanel implements EditorCrea
             afilter[1] = null;
         } else {
             afilter[0] = QBFCompareEnum.COMP_RE;
-            afilter[1] = "%" + m_jtxtName.getText() + "%";
+            afilter[1] = "%" + m_jtxtName.getText().toUpperCase() + "%";
         }
         
         // Precio de compra
